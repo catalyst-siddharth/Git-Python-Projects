@@ -3,8 +3,8 @@ import time
 import re
 
 
-user_file = "S:/Python/Network_App/Credentials.txt"
-cmd_file = "S:/Python/Network_App/Configurations.txt"
+user_file = "S:/Git-Python-Projects/Network_App/Credentials.txt"
+cmd_file = "S:/Git-Python-Projects/Network_App/Configurations.txt"
 
 
 def ssh_connection(ip):

@@ -1,6 +1,7 @@
 from re import findall
 from subprocess import Popen, PIPE
 from ip_file_valid import ip_file_valid
+import sys
 
 def ip_reach(host, ping_count):
     for ip in host:
@@ -13,6 +14,8 @@ def ip_reach(host, ping_count):
             ping_test = findall("TTL",data)
         if not ping_test:
             print(f"{ip}: Failed Ping")
+        
+        sys.exit(0)
                    
                 
 nodes = ip_file_valid()

@@ -2,7 +2,7 @@ import os.path
 import sys
 
 def ip_file_valid():
-    file_path = "S:/Python/Network_App/IP_Address.txt"
+    file_path = "S:/Git-Python-Projects/Network_App/IP_Address.txt"
     file_exist = os.path.exists(file_path)
     
     #Checking if file exists:
