@@ -1,6 +1,7 @@
 import paramiko
 import time
 import re
+from datetime import datetime
 
 user_file = "S:/Git-Python-Projects/CPU_Utilization_Monitoring/credentials.txt"
 cmd_file = "S:/Git-Python-Projects/CPU_Utilization_Monitoring/configurations.txt"
@@ -12,6 +13,8 @@ def ssh_con(ip):
     try:
         selected_user_file = open(user_file,'r')
         selected_cmd_file = open(cmd_file,'r')
+        now = datetime.now()
+        current_time = now.strftime("%Y-%m-%d %H:%M:%S")
         
         username = selected_user_file.readlines()[0].split(',')[0]
         selected_user_file.seek(0)
@@ -33,9 +36,8 @@ def ssh_con(ip):
         if re.search(b"% Invalid input", router_output):
             print(f"Input Error Detected on device {ip} ")
         else:
-            print(f"Configuration Pushed Successfully on device {ip}")
+            print(f"{current_time}: CPU Utilization pushed for the device {ip}")
         cpu = re.search(b"one(\s)minute:(.+?)%",router_output)
-        print(type(cpu))
         utilization = cpu.group(2).decode("utf-8")
         
         with open("S:/Git-Python-Projects/CPU_Utilization_Monitoring/cpu.txt","a") as f:
@@ -47,5 +49,3 @@ def ssh_con(ip):
         
     except paramiko.AuthenticationException:
         print("Invalid Username or Password. Closing Connection. Bye !")
-        
-result = ssh_con("192.168.1.102")
