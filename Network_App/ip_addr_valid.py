@@ -1,5 +1,6 @@
 import re
 from ip_file_valid import ip_file_valid
+import sys
 
 def ip_addr_valid(ip_address):
     ip_address = ip_file_valid()
@@ -15,4 +16,5 @@ def ip_addr_valid(ip_address):
         return True
     else:
         return False
+        sys.exit()
         

@@ -1,6 +1,6 @@
 from datetime import datetime
 
-cmd_file = "S:/Python/Network_App/Configurations.txt"
+cmd_file = "S:/Git-Python-Projects/Network_App/Configurations.txt"
 
 def log_file(ip):
     global cmd_file
@@ -10,7 +10,7 @@ def log_file(ip):
     app_log_file = open("logs.txt",'a')
         
     for each_line in selected_file.readlines():
-        app_log_file.write(f"{current_time} {ip}\t{each_line}")
+        app_log_file.write(f"{current_time} {ip}\t{each_line}\n")
     
     #app_log_file.write("\n")
             

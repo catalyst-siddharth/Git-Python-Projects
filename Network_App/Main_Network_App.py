@@ -7,22 +7,26 @@ from ssh_connection import ssh_connection
 from create_threads import create_threads
 from log_file import log_file
 
-ip_list = ip_file_valid()
+nodes = ip_file_valid()
+ip_list = ip_reach(nodes,1)
 
-try:
-    ip_addr_valid(ip_list)
-except KeyboardInterrupt:
-    print("\n\nProgram Interrupted by User. Exiting ... \n")
-    sys.exit()
+if ip_list:
+    try:
+        ip_addr_valid(ip_list)
+    except KeyboardInterrupt:
+        print("\n\nProgram Interrupted by User. Exiting ... \n")
+        sys.exit()
+        
     
-
-try:
-    ip_reach(ip_list,1)
-except KeyboardInterrupt:
-    print("\n\nProgram Interrupted by User. Exiting ... \n")
-    sys.exit()
+    try:
+        ip_reach(ip_list,1)
+    except KeyboardInterrupt:
+        print("\n\nProgram Interrupted by User. Exiting ... \n")
+        sys.exit()
+        
     
-
-for ip in ip_list:
-    create_threads(ip_list, ssh_connection(ip))
-    log_file(ip)
+    for ip in ip_list:
+        create_threads(ip_list, ssh_connection(ip))
+        log_file(ip)
+else:
+    print("No IP Addresses are reachable. Bye Bye !")

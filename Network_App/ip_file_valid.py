@@ -13,7 +13,7 @@ def ip_file_valid():
         for ip in open_file.read().splitlines():
             ip_list.append(ip)
     else:
-        print("\nFile doesn't exist. Please check and try again.\n\n")
+        print("\nDevice Inventory doesn't exist. Please check and try again.\n\n")
         sys.exit()
         
     open_file.close()
@@ -21,3 +21,5 @@ def ip_file_valid():
     return ip_list
         
             
+result = ip_file_valid()
+print(result)
