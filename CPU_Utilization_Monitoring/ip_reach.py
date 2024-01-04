@@ -1,5 +1,6 @@
 from subprocess import Popen, PIPE
 from re import findall
+import sys
 
 
 ip_address_file = "S:/Git-Python-Projects/CPU_Utilization_Monitoring/ip_address.txt"
@@ -27,8 +28,12 @@ def valid_ip():
             ping_test = findall("TTL",data)
         if ping_test:
             valid_ip.append(ip)
-            
-    return valid_ip
+    
+    if not valid_ip:
+        print("\n\nNone of the IP's are pingnig.. Exiting.!!\n")
+        sys.exit()
+    else:          
+        return valid_ip
 
 
 def failed_ip():

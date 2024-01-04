@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['ip_reach.py', 'ssh_con.py', 'credentials.txt', 'configurations.txt']
+recent_files = ['ip_reach.py', 'ssh_con.py', 'credentials.txt', 'configurations.txt', 'create_threads.py', 'ip_address.txt']
 

@@ -9,10 +9,14 @@ ip_list = valid_ip()
 try:
     valid_ip()
     
-except:
+except KeyboardInterrupt:
     print("\n\nProgram aborted by the user. Exiting ...\n")
     sys.exit()
 
 while True:
-    create_threads(ip_list, ssh_con)
-    time.sleep(10)
+    try:
+        create_threads(ip_list, ssh_con)
+        time.sleep(10)
+    except KeyboardInterrupt:
+        print("\n\nProgram aborted by the user. Exiting ... \n")
+        sys.exit()

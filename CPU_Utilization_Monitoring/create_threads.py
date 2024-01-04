@@ -1,11 +1,13 @@
 import threading
+from ssh_con import ssh_con
+from ip_reach import valid_ip
 
 def create_threads(list, function):
     
     threads = []
     
     for ip in list:
-        th = threading.Thread(target = function, args = (ip))
+        th = threading.Thread(target = function, args = (ip,))
         th.start()
         threads.append(th)
     
